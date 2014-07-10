@@ -1,39 +1,22 @@
 <html>
 <head>
+<script src="jquery-1.8.2.min.js" type="text/javascript"></script> 
 <script type="text/javascript">
-function createRequest() {
-	  var result = null;
-	  if (window.XMLHttpRequest) {
-	    // FireFox, Safari, etc.
-	    result = new XMLHttpRequest();
-	    if (typeof xmlhttp.overrideMimeType != 'undefined') {
-	      result.overrideMimeType('text/xml'); // Or anything else
-	    }
-	  }
-	  else if (window.ActiveXObject) {
-	    // MSIE
-	    result = new ActiveXObject("Microsoft.XMLHTTP");
-	  } 
-	  else {
-	    // No known mechanism -- consider aborting the application
-	  }
-	  return result;
-	}
+$.get("http://ipinfo.io", function (response) {
+    $("#ip").html("IP: " + response.ip);
+    $("#address").html("Location: " + response.city + ", " + response.region);
+    $("#details").html(JSON.stringify(response, null, 4));
+}, "jsonp");
 </script>
-
-<script>
-var myip;
-function ip_callback(o) {
-    myip = o.host;
-    
-}
-</script>
-<script src="https://smart-ip.net/geoip-json?callback=ip_callback"></script>
-
 
 
 </head>
 <body>
-<input type="text" name="loc">
+<h3>Client side IP geolocation using <a href="http://ipinfo.io">ipinfo.io</a></h3>
+
+<hr/>
+<div id="ip"></div>
+<div id="address"></div>
+<hr/>Full response: <pre id="details"></pre>
 </body>
 </html>
