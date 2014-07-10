@@ -20,6 +20,18 @@ function createRequest() {
 	  return result;
 	}
 </script>
+
+<script>
+var myip;
+function ip_callback(o) {
+    myip = o.host;
+    
+}
+</script>
+<script src="https://smart-ip.net/geoip-json?callback=ip_callback"></script>
+
+
+
 </head>
 <body>
 <input type="text" name="loc">
