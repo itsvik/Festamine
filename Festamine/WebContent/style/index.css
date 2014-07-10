@@ -1,0 +1,27 @@
+#header
+{
+	vertical-align: top;
+height:10%;
+overflow:none;
+	background-color: black;
+	position: relative;
+}
+#content
+{
+	height: 80%;
+	background-color: gray;
+	position: relative;
+}
+#footer
+{
+	vertical-align: bottom;
+	height: 10%;
+	background-color: black;
+	position: relative;
+}
+#parent
+{
+	height: 100%;
+	
+	//background-color: black;
+}
