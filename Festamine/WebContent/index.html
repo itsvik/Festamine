@@ -15,31 +15,49 @@
 		<link rel="stylesheet" href="css/bootstrap.css">
 		<link rel="stylesheet" href="css/bootstrap-theme.css">
         <link rel="stylesheet" href="css/style.css">
+        <link rel="stylesheet" href="//code.jquery.com/ui/1.11.0/themes/smoothness/jquery-ui.css">
 		<!-- skin -->
 		<link rel="stylesheet" href="skin/default.css">
 		<link rel="shortcut icon" href="images/favicon.ico">
 		<style type="text/css">
-		
+		$(document).ready(function(){
+  $('a[href*=#section-services]').click(function() {
+    if (location.pathname.replace(/^\//,'') == this.pathname.replace(/^\//,'')
+    && location.hostname == this.hostname) {
+      var $target = $(this.hash);
+      $target = $target.length && $target
+      || $('[name=' + this.hash.slice(1) +']');
+      if ($target.length) {
+        var targetOffset = $target.offset().top;
+        $('html,body')
+        .animate({scrollTop: targetOffset}, 1000);
+       return false;
+      }
+    }
+  });
+});
 		</style>
+		<script src="//code.jquery.com/jquery-1.10.2.js"></script>
+  <script src="//code.jquery.com/ui/1.11.0/jquery-ui.js"></script>
 <script src="jquery-1.8.2.min.js" type="text/javascript"></script> 
 <script type="text/javascript">
-	 $(window).load(function() {           
-		var i =0; 
-		var images = ['./images/4.jpg','./images/2.jpg','./images/3.jpg'];
-		var image = $('.featured');
-		image.css('backgroung-repeat', 'no-repeat');
-		image.css('background-image', 'url(./images/3.jpg)');
-		
-		setInterval(function(){			
-			image.fadeOut(1000, function () {
-				image.css('backgroung-repeat', 'no-repeat');
-				image.css('background-image', 'url(' + images [i++] +')');	
-			image.fadeIn(1000);
-			});
-			if(i == images.length)
-				i = 0;
-		}, 5000);            
-	});
+$(window).load(function() {           
+	var i =0; 
+	var images = ['./images/1.jpg','./images/2.jpg','./images/3.jpg','./images/4.jpg'];
+	var image = $('.featured');
+	image.css('background-size: 100%');
+	image.css('background-image', 'background-size: 100%','white');
+	
+	setInterval(function(){			
+		image.fadeOut(1000, function () {
+			image.css('backgroung-repeat', 'no-repeat');
+			image.css('background-image', 'url(' + images [i++] +')');	
+		image.fadeIn(1000);
+		});
+		if(i == images.length)
+			i = 0;
+	}, 5000);            
+});
 </script> 
     </head>
 	 
@@ -56,34 +74,53 @@
 				</div>
 				<div class="navbar-collapse collapse">
 					<ul class="nav navbar-nav" data-0="margin-top:20px;" data-300="margin-top:5px;">
-						<li class="active"><a href="index.html">Home</a></li>
-					<!-- 	<li><a href="#section-about">About</a></li>
-						<li><a href="#section-works">Portfolio</a></li> -->
-						<li><a href="#section-contact">Contact</a></li>
+						<li class="active"><a href="#header">Home</a></li>
+						<li><a href="#parallax4">Eventfolio</a></li> 
+					 	<li><a href="#parallax2">Our Team</a></li>						
+						<li><a href="#parallax3">Contact</a></li>
+						
 					</ul>
 				</div><!--/.navbar-collapse -->
 			</div>
 		</div>
-
-		<section class="featured">
-			<div class="container"> 
+		<div style="height: 718px;">
+		<section class="featured" style="height: 718px;">
+			<div class="kuch"> 
 				<div class="row mar-bot40">
 					<div class="col-md-6 col-md-offset-3">
 						
-						<div class="align-center">
-							<i><img src="images/festamine.png"/></i>
-						<!-- 	<h2 class="slogan">Welcome to Festamine</h2>
+						<!-- <div class="align-center">
+							<img id="logo" src="images/festamine.png" />
+						 --><!-- 	<h2 class="slogan">Welcome to Festamine</h2>
 							<p>
 							Lorem ipsum dolor sit amet, natum bonorum expetendis usu ut. 
 							Eum impetus offendit disputationi eu, at vim aliquip lucilius praesent. 
 							Alia laudem antiopam te ius, sed ad munere integre, ubique facete sapientem nam ut. 
 				
-							</p>	 -->
+							</p>	</div> -->
 						</div>
 					</div>
 				</div>
-			</div>
+			
+			
 		</section>
+			<div class="align-center" style = "z-index: 1029; margin-top: -35%;position: relative; ">
+				<img id="logo" src="images/festamine.png" /><br/><br/><br/>
+				<!--<a href="#section-services" style="-webkit-transition: all 0.5s ease;"><i class="fa fa-angle-double-down  fa-5x mar-bot20"></i></a>-->
+			</div>
+			
+		</div>
+		<!-- spacer section:stats -->
+		<section id="parallax1" class="section pad-top40 pad-bot40" data-stellar-background-ratio="0.5">
+			<div class="container">
+            <div class="align-center pad-top40 pad-bot40">
+                <blockquote class="bigquote color-white">We are changing the process !!!</blockquote>
+				<p class="color-white">#Festamine</p>
+            </div>
+			</div>	
+		</section>
+		<!-- spacer section:testimonial -->
+		
 		
 		<!-- services -->
 		<section id="section-services" class="section pad-bot30 bg-white">
@@ -131,20 +168,28 @@
 
 		</div>
 		</section>
-			
-		<!-- spacer section:testimonial -->
-		<section id="testimonials" class="section" data-stellar-background-ratio="0.5">
+		
+		<section id="parallax4" class="section" data-stellar-background-ratio="0.5">
+			<div class="container">
+            <div class="row">				
+					<div class="col-lg-12">
+							<div class="align-center">
+                <blockquote class="bigquote color-white">Eventfolio</blockquote>
+				<p class="color-white">Welcome to our eventfolio, which brings you to a world where you can find all types of possibilities to create your very own event in  your own 	way </p>
+            </div>
+			</div>	
+			</div>
+			</div>
+		</section>	
+		<!--<section id="testimonials" class="section" data-stellar-background-ratio="0.5">
 		<div class="container">
 			<div class="row">				
 					<div class="col-lg-12">
 							<div class="align-center">
-										<div class="testimonial pad-top40 pad-bot40 clearfix">
-											<h5>
-												Nunc velit risus, dapibus non interdum quis, suscipit nec dolor. Vivamus tempor tempus mauris vitae fermentum. In vitae nulla lacus. Sed sagittis tortor vel arcu sollicitudin nec tincidunt metus suscipit.Nunc velit risus, dapibus non interdum.
-											</h5>
-											<br/>
-											<span class="author">&mdash; MIKE DOE <a href="#">www.siteurl.com</a></span>
-										</div>
+										
+											<h2 class="section-heading animated" data-animation="bounceInUp">Eventfolio</h2>
+											<p>Welcome to our eventfolio, which brings you to a world where you can find all types of possibilities to create your very own event in  your own 	way </p>
+										
 
 								</div>
 							</div>
@@ -152,22 +197,177 @@
 				
 			</div>	
 		</div>	
+		</section>  -->
+	
+		
+		
+		
+		
+		<!-- section works -->
+		<section id="section-works" class="section appear clearfix">
+			<div class="container">
+				
+			<!--	<div class="row mar-bot40">
+					<div class="col-md-offset-3 col-md-6">
+						<div class="section-header">
+							<h2 class="section-heading animated" data-animation="bounceInUp">Eventfolio</h2>
+							<p>Welcome to our eventfolio, which brings you to a world where you can find all types of possibilities to create your very own event in  your own 	way </p>
+						</div>
+					</div>
+				</div> -->
+					
+                        <div class="row">
+                          <nav id="filter" class="col-md-12 text-center">
+                            <ul>
+                              <li><a href="#" class="current btn-theme btn-small" data-filter="*">All</a></li>
+                              <li><a href="#"  class="btn-theme btn-small" data-filter=".corporate" >Corporate</a></li>
+                              <li><a href="#"  class="btn-theme btn-small" data-filter=".personal">Personal</a></li>
+                              
+                            </ul>
+                          </nav>
+                          <div class="col-md-12">
+                            <div class="row">
+                              <div class="portfolio-items isotopeWrapper clearfix" id="3">
+							  
+                                <article class="col-md-4 isotopeItem personal">
+									<div class="portfolio-item">
+										<img src="img/portfolio/img1.jpg" alt="" />
+										 <div class="portfolio-desc align-center">
+											<div class="folio-info">
+												<h5><a href="#">Birthday Party</a></h5>
+												<a href="img/portfolio/img1.jpg" class="fancybox"><i class="fa fa-plus fa-2x"></i></a>
+											 </div>										   
+										 </div>
+									</div>
+                                </article>
+
+                                <article class="col-md-4 isotopeItem personal">
+									<div class="portfolio-item">
+										<img src="img/portfolio/img2.jpg" alt="" />
+										 <div class="portfolio-desc align-center">
+											<div class="folio-info">
+												<h5><a href="#">Wedding</a></h5>
+												<a href="img/portfolio/img2.jpg" class="fancybox"><i class="fa fa-plus fa-2x"></i></a>
+											 </div>										   
+										 </div>
+									</div>
+                                </article>
+								
+
+                                <article class="col-md-4 isotopeItem personal">
+									<div class="portfolio-item">
+										<img src="img/portfolio/img3.jpg" alt="" />
+										 <div class="portfolio-desc align-center">
+											<div class="folio-info">
+												<h5><a href="#">Engagement</a></h5>
+												<a href="img/portfolio/img3.jpg" class="fancybox"><i class="fa fa-plus fa-2x"></i></a>
+											 </div>										   
+										 </div>
+									</div>
+                                </article>
+
+                                
+
+                                <article class="col-md-4 isotopeItem personal">
+									<div class="portfolio-item">
+										<img src="img/portfolio/img5.jpg" alt="" />
+										 <div class="portfolio-desc align-center">
+											<div class="folio-info">
+												<h5><a href="#">Kitty Party</a></h5>
+												<a href="img/portfolio/img5.jpg" class="fancybox"><i class="fa fa-plus fa-2x"></i></a>
+											 </div>										   
+										 </div>
+									</div>
+                                </article>
+
+                                <article class="col-md-4 isotopeItem corporate">
+									<div class="portfolio-item">
+										<img src="img/portfolio/img4.jpg" alt="" />
+										 <div class="portfolio-desc align-center">
+											<div class="folio-info">
+												<h5><a href="#">Corporate Party</a></h5>
+												<a href="img/portfolio/img4.jpg" class="fancybox"><i class="fa fa-plus fa-2x"></i></a>
+											 </div>										   
+										 </div>
+									</div>
+                                </article>
+
+                                <article class="col-md-4 isotopeItem corporate">
+									<div class="portfolio-item">
+										<img src="img/portfolio/img7.jpg" alt="" />
+										 <div class="portfolio-desc align-center">
+											<div class="folio-info">
+												<h5><a href="#">Team Outing</a></h5>
+												<a href="img/portfolio/img7.jpg" class="fancybox"><i class="fa fa-plus fa-2x"></i></a>
+											 </div>										   
+										 </div>
+									</div>
+                                </article>
+								
+								<article class="col-md-4 isotopeItem personal">
+									<div class="portfolio-item">
+										<img src="img/portfolio/img6.jpg" alt="" />
+										 <div class="portfolio-desc align-center">
+											<div class="folio-info">
+												<h5><a href="#">Anniversary</a></h5>
+												<a href="img/portfolio/img6.jpg" class="fancybox"><i class="fa fa-plus fa-2x"></i></a>
+											 </div>										   
+										 </div>
+									</div>
+                                </article>
+
+                                <article class="col-md-4 isotopeItem corporate">
+									<div class="portfolio-item">
+										<img src="img/portfolio/img8.jpg" alt="" />
+										 <div class="portfolio-desc align-center">
+											<div class="folio-info">
+												<h5><a href="#">Farewell Party</a></h5>
+												<a href="img/portfolio/img8.jpg" class="fancybox"><i class="fa fa-plus fa-2x"></i></a>
+											 </div>										   
+										 </div>
+									</div>
+                                </article>
+								
+								<article class="col-md-4 isotopeItem personal">
+									<div class="portfolio-item">
+										<img src="img/portfolio/img9.jpg" alt="" />
+										 <div class="portfolio-desc align-center">
+											<div class="folio-info">
+												<h5><a href="#">Get Together</a></h5>
+												<a href="img/portfolio/img9.jpg" class="fancybox"><i class="fa fa-plus fa-2x"></i></a>
+											 </div>										   
+										 </div>
+									</div>
+                                </article>
+                                
+                                </div>
+                                        
+							</div>
+                                     
+
+							</div>
+                        </div>
+				
+			</div>
 		</section>
-			
-		<!-- about -->
+		<section id="parallax2" class="section parallax" data-stellar-background-ratio="0.5">	
+            <div class="container">
+            <div class="row">				
+					<div class="col-lg-12">
+							<div class="align-center">
+                <blockquote class="bigquote color-white">Meet our small but ambitions team</blockquote>
+			</div>
+</div>
+</div>			
+            </div>
+		</section>
+
+<!-- about -->
 		<section id="section-about" class="section appear clearfix">
 		<div class="container">
 
-				<div class="row mar-bot40">
-					<div class="col-md-offset-3 col-md-6">
-						<div class="section-header">
-							<h2 class="section-heading animated" data-animation="bounceInUp">Our Team</h2>
-							<p>	</p>
-						</div>
-					</div>
-				</div >
 
-					<div class="row align-center mar-bot40" style="margin-left: 15%">
+					<div class="row align-center mar-bot40" style="margin-left: 20%">
 						<div class="col-md-3">
 							<div class="team-member">
 								<figure class="member-photo"><img src="img/team/member1.jpg" alt="" /></figure>
@@ -208,181 +408,32 @@
 						
 		</div>
 		</section>
-		<!-- /about -->
+		<!-- /about -->		
 		
-		<!-- spacer section:stats -->
-		<section id="parallax1" class="section pad-top40 pad-bot40" data-stellar-background-ratio="0.5">
-			<div class="container">
-            <div class="align-center pad-top40 pad-bot40">
-                <blockquote class="bigquote color-white">Indoctum accusamus comprehensam</blockquote>
-				<p class="color-white">Bootstraptaste</p>
+		<section id="parallax3" class="section parallax" data-stellar-background-ratio="0.5">	
+            <div class="container">
+            <div class="row">				
+					<div class="col-lg-12">
+							<div class="align-center">
+                <blockquote class="bigquote color-white">Contact Us</blockquote>
+				<p class="color-white">Don't hesitate to know more, just fill up to form to contact us</p>
             </div>
-			</div>	
-		</section>
-		
-		<!-- section works -->
-		<section id="section-works" class="section appear clearfix">
-			<div class="container">
-				
-				<div class="row mar-bot40">
-					<div class="col-md-offset-3 col-md-6">
-						<div class="section-header">
-							<h2 class="section-heading animated" data-animation="bounceInUp">Portfolio</h2>
-							<p>Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet consectetur, adipisci velit, sed quia non numquam.</p>
-						</div>
-					</div>
-				</div>
-					
-                        <div class="row">
-                          <nav id="filter" class="col-md-12 text-center">
-                            <ul>
-                              <li><a href="#" class="current btn-theme btn-small" data-filter="*">All</a></li>
-                              <li><a href="#"  class="btn-theme btn-small" data-filter=".webdesign" >Web Design</a></li>
-                              <li><a href="#"  class="btn-theme btn-small" data-filter=".photography">Photography</a></li>
-                              <li ><a href="#" class="btn-theme btn-small" data-filter=".print">Print</a></li>
-                            </ul>
-                          </nav>
-                          <div class="col-md-12">
-                            <div class="row">
-                              <div class="portfolio-items isotopeWrapper clearfix" id="3">
-							  
-                                <article class="col-md-4 isotopeItem webdesign">
-									<div class="portfolio-item">
-										<img src="img/portfolio/img1.jpg" alt="" />
-										 <div class="portfolio-desc align-center">
-											<div class="folio-info">
-												<h5><a href="#">Portfolio name</a></h5>
-												<a href="img/portfolio/img1.jpg" class="fancybox"><i class="fa fa-plus fa-2x"></i></a>
-											 </div>										   
-										 </div>
-									</div>
-                                </article>
-
-                                <article class="col-md-4 isotopeItem photography">
-									<div class="portfolio-item">
-										<img src="img/portfolio/img2.jpg" alt="" />
-										 <div class="portfolio-desc align-center">
-											<div class="folio-info">
-												<h5><a href="#">Portfolio name</a></h5>
-												<a href="img/portfolio/img2.jpg" class="fancybox"><i class="fa fa-plus fa-2x"></i></a>
-											 </div>										   
-										 </div>
-									</div>
-                                </article>
-								
-
-                                <article class="col-md-4 isotopeItem photography">
-									<div class="portfolio-item">
-										<img src="img/portfolio/img3.jpg" alt="" />
-										 <div class="portfolio-desc align-center">
-											<div class="folio-info">
-												<h5><a href="#">Portfolio name</a></h5>
-												<a href="img/portfolio/img3.jpg" class="fancybox"><i class="fa fa-plus fa-2x"></i></a>
-											 </div>										   
-										 </div>
-									</div>
-                                </article>
-
-                                <article class="col-md-4 isotopeItem print">
-									<div class="portfolio-item">
-										<img src="img/portfolio/img4.jpg" alt="" />
-										 <div class="portfolio-desc align-center">
-											<div class="folio-info">
-												<h5><a href="#">Portfolio name</a></h5>
-												<a href="img/portfolio/img4.jpg" class="fancybox"><i class="fa fa-plus fa-2x"></i></a>
-											 </div>										   
-										 </div>
-									</div>
-                                </article>
-
-                                <article class="col-md-4 isotopeItem photography">
-									<div class="portfolio-item">
-										<img src="img/portfolio/img5.jpg" alt="" />
-										 <div class="portfolio-desc align-center">
-											<div class="folio-info">
-												<h5><a href="#">Portfolio name</a></h5>
-												<a href="img/portfolio/img5.jpg" class="fancybox"><i class="fa fa-plus fa-2x"></i></a>
-											 </div>										   
-										 </div>
-									</div>
-                                </article>
-
-                                <article class="col-md-4 isotopeItem webdesign">
-									<div class="portfolio-item">
-										<img src="img/portfolio/img6.jpg" alt="" />
-										 <div class="portfolio-desc align-center">
-											<div class="folio-info">
-												<h5><a href="#">Portfolio name</a></h5>
-												<a href="img/portfolio/img6.jpg" class="fancybox"><i class="fa fa-plus fa-2x"></i></a>
-											 </div>										   
-										 </div>
-									</div>
-                                </article>
-
-                                <article class="col-md-4 isotopeItem print">
-									<div class="portfolio-item">
-										<img src="img/portfolio/img7.jpg" alt="" />
-										 <div class="portfolio-desc align-center">
-											<div class="folio-info">
-												<h5><a href="#">Portfolio name</a></h5>
-												<a href="img/portfolio/img7.jpg" class="fancybox"><i class="fa fa-plus fa-2x"></i></a>
-											 </div>										   
-										 </div>
-									</div>
-                                </article>
-
-                                <article class="col-md-4 isotopeItem photography">
-									<div class="portfolio-item">
-										<img src="img/portfolio/img8.jpg" alt="" />
-										 <div class="portfolio-desc align-center">
-											<div class="folio-info">
-												<h5><a href="#">Portfolio name</a></h5>
-												<a href="img/portfolio/img8.jpg" class="fancybox"><i class="fa fa-plus fa-2x"></i></a>
-											 </div>										   
-										 </div>
-									</div>
-                                </article>
-
-                                <article class="col-md-4 isotopeItem print">
-									<div class="portfolio-item">
-										<img src="img/portfolio/img9.jpg" alt="" />
-										 <div class="portfolio-desc align-center">
-											<div class="folio-info">
-												<h5><a href="#">Portfolio name</a></h5>
-												<a href="img/portfolio/img9.jpg" class="fancybox"><i class="fa fa-plus fa-2x"></i></a>
-											 </div>										   
-										 </div>
-									</div>
-                                </article>
-                                </div>
-                                        
-							</div>
-                                     
-
-							</div>
-                        </div>
-				
+			</div>
 			</div>
 		</section>
-		<section id="parallax2" class="section parallax" data-stellar-background-ratio="0.5">	
-            <div class="align-center pad-top40 pad-bot40">
-                <blockquote class="bigquote color-white">Indoctum accusamus comprehensam</blockquote>
-				<p class="color-white">Bootstraptaste</p>
-            </div>
-		</section>
-
+		
 		<!-- contact -->
 		<section id="section-contact" class="section appear clearfix">
 			<div class="container">
 				
-				<div class="row mar-bot40">
+				<!--<div class="row mar-bot40">
 					<div class="col-md-offset-3 col-md-6">
 						<div class="section-header">
 							<h2 class="section-heading animated" data-animation="bounceInUp">Contact us</h2>
-							<p>Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet consectetur, adipisci velit, sed quia non numquam.</p>
+							<p>Don't hesitate to know more, just fill up to form to contact us </p>
 						</div>
 					</div>
-				</div>
+				</div>  -->
 				<div class="row">
 					<div class="col-md-8 col-md-offset-2">
 						<div class="cform" id="contact-form">
@@ -422,9 +473,9 @@
 			</div>
 		</section>
 		<!-- map -->
-		<section id="section-map" class="clearfix">
+		<!-- <section id="section-map" class="clearfix">
 			<div id="map"></div>
-		</section>
+		</section> -->
 		
 	<section id="footer" class="section footer">
 		<div class="container">
@@ -432,7 +483,7 @@
 				<div class="col-sm-12 align-center">
                     <ul class="social-network social-circle">
                         <li><a href="#" class="icoRss" title="Rss"><i class="fa fa-rss"></i></a></li>
-                        <li><a href="#" class="icoFacebook" title="Facebook"><i class="fa fa-facebook"></i></a></li>
+                        <li><a href="https://www.facebook.com/festamine" class="icoFacebook" title="Facebook"><i class="fa fa-facebook"></i></a></li>
                         <li><a href="#" class="icoTwitter" title="Twitter"><i class="fa fa-twitter"></i></a></li>
                         <li><a href="#" class="icoGoogle" title="Google +"><i class="fa fa-google-plus"></i></a></li>
                         <li><a href="#" class="icoLinkedin" title="Linkedin"><i class="fa fa-linkedin"></i></a></li>
@@ -441,7 +492,7 @@
 			</div>
 
 			<div class="row align-center copyright">
-					<div class="col-sm-12"><p>Copyright &copy; 2014 Amoeba - by <a href="http://bootstraptaste.com">Bootstraptaste</a></p></div>
+					<div class="col-sm-12"><p>Copyright &copy; 2014 Festamine.com - by <a href="http://Festamine.com">Festamine Solutions India Pvt. Ltd.</a></p></div>
 			</div>
 		</div>
 

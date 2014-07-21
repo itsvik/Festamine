@@ -337,7 +337,11 @@ section.section {
 #parallax2{	
 	background-image: url(../img/parallax/img2.jpg);
 }
-#testimonials{	
+#parallax3{	
+	background-image: url(../img/parallax/img4.jpg);
+}
+
+#parallax4{	
 	background-image: url(../img/parallax/img3.jpg);
 }
 /*===========================
@@ -432,7 +436,9 @@ h1 a.navbar-brand {
 
 section.featured {
 	padding: 200px 0 60px;
-	background: #70B9B0;
+	background: white;
+	background: no-Repeat;
+	background-size:100%;
 	color: #fdfdfd;
 }
 
